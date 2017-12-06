@@ -18,25 +18,14 @@ const subjectController = require ('./routes/subjectController');
 const dbURL = "mongodb://localhost/teachMeNow";
 const app = express();
 
-// const User = require('./models/User');
-// const Meeting = require ('./models/Meeting')
-// const Subject = require('./models/Subject');
-// const Rating = require('./models/Rating');
-
 
 mongoose.connect(dbURL).then( () => {
   debug(`Connected to ${dbURL}`);
 });
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-require('./passport')(app);
-
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(session({
@@ -46,22 +35,27 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
+require('./passport')(app);
 
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use((req,res,next) => {
+//   res.locals.title = "Teach me Now";
+//   res.locals.user = req.user;
+//   next();
+// });
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', index);
-// app.use('/auth', authController);
-// app.use('/subject', subjectController);
-// app.use('/user', userController);
+app.use('/auth', authController);
+app.use('/subject', subjectController);
+app.use('/user', userController);
 // app.use('/rating', ratingController);
 // app.use('/meeting', meetingController);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -69,11 +63,6 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-app.use((req,res,next) => {
-  res.locals.title = "Teach me Now";
-  res.locals.user = req.user;
-  next();
-});
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
