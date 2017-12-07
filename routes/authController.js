@@ -7,7 +7,8 @@ const bcryptSalt = 10;
 const ensureLogin = require("connect-ensure-login");
 
 
-authController.post('/signup', (req, res, next) => {
+authController.post('/signup', (req, res) => {
+  console.log(req.body)
   const {username, password, role} = req.body;
 
   if (!username || !password || !role) {
@@ -28,8 +29,10 @@ authController.post('/signup', (req, res, next) => {
     const theUser = new User({
       username,
       password: hashPass,
-      role
+      role,
+
     });
+    console.log(theUser);
     return theUser.save();
   })
   .then(newUser => {

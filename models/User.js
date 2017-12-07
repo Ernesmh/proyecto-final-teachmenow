@@ -4,34 +4,23 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
-  role: {type:String, enum: ['student','teacher']},
-  available: {type:String, enum: ['yes','no']},
+  role: {type:String, enum:["teacher","student"]},
+  // role: {teacher: { subject: String,
+  //                   isAvailable: Boolean,
+  //                   price_per_hour: Number,
+  //                   rating: Number,
+  //                   level: {type: String, enum: ['Secundaria', 'Bachillerato', 'Universidad/FP', 'Postgrado']}
+  //                   },
+  //       student: {}
+  //
+  // },
+
   email: String,
-  latitude: Number,
-  longitude: Number,
+  position: {latitude: Number, longitude: Number},
   phone: Number,
-  price_per_hour: Number,
   avatar: String,
-  level: {
-    type: Schema.Types.ObjectId,
-    ref: 'Rating',
-  },
-  subject: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Subject',
-  }],
-  rating:  {
-    type: Schema.Types.ObjectId,
-    ref: 'Rating',
 
-  },
-  meeting:  {
-    type: Schema.Types.ObjectId,
-    ref: 'Meeting',
-
-  },
 });
 
 const User= mongoose.model("User", userSchema);
-
 module.exports = User;

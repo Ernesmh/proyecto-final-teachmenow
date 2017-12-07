@@ -14,7 +14,7 @@ const meetingController = require ('./routes/meetingController');
 const ratingController = require ('./routes/ratingController');
 const userController = require ('./routes/userController');
 const subjectController = require ('./routes/subjectController');
-
+const cors = require('cors');
 const dbURL = "mongodb://localhost/teachMeNow";
 const app = express();
 
@@ -22,6 +22,19 @@ const app = express();
 mongoose.connect(dbURL).then( () => {
   debug(`Connected to ${dbURL}`);
 });
+
+const whitelist = [
+    'http://localhost:4200',
+];
+const corsOptions = {
+    origin: function(origin, callback){
+        const originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+        callback(null, originIsWhitelisted);
+    },
+    credentials: true
+};
+
+app.use(cors(corsOptions));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -53,7 +66,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth', authController);
 app.use('/subject', subjectController);
 app.use('/user', userController);
-// app.use('/rating', ratingController);
+app.use('/rating', ratingController);
 // app.use('/meeting', meetingController);
 
 // catch 404 and forward to error handler
@@ -71,7 +84,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.status(400).json({"message": err.status});
 });
 
 module.exports = app;
