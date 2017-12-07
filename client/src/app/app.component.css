@@ -1,0 +1,23 @@
+ul{
+  padding:0;
+}
+
+li{
+  list-style-type: none;
+}
+
+#space{
+  width: 100vw;
+  height: 100vh;
+
+}
+
+input{
+  width:100%;
+}
+
+button{
+  margin-top:20px;
+  border:1px solid black;
+  border-radius: 10px;
+}

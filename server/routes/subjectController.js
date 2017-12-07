@@ -11,7 +11,7 @@ subjectController.get('/', ensureLogin.ensureLoggedIn ('/login'), (req, res, nex
   .catch(err => { res.status(500).json(err);});
 });
 
-subjectController.get('/:id/', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) => {
+subjectController.get('/:id', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) => {
   let id = req.params.id;
   subject.findById(id)
   .then( subject => {res.json(subject);})

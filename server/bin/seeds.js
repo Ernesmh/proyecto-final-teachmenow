@@ -24,7 +24,7 @@ const users = [{
     email: 'rns_mh@hotmail.com',
     latitude: 40.392711,
     longitude: -3.698479,
-    phone: 636142859,
+    phone: 636123459,
     price_per_hour: '',
     avatar:'',
     level: 'Postgrado',
@@ -147,7 +147,8 @@ const users = [{
     },
 ];
 
-// User.collection.drop();
+User.collection.drop();
+
 User.create(users)
   .then(user => {
     console.log("seeds hechos");
@@ -178,7 +179,8 @@ const subjects = [{
   }
 ];
 
-// User.collection.drop();
+Subject.collection.drop();
+
 Subject.create(subjects)
   .then(user => { mongoose.connection.close(); })
   .catch(err => console.log(err));
