@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { AuthService } from './services/auth.service';
+import { AgmCoreModule } from '@agm/core'
 // import { HomeComponent } from './home/home.component';
 // import { UserprofileComponent } from './userprofile/userprofile.component';
 import { RouterModule } from '@angular/router';
@@ -28,13 +29,18 @@ import { FindteachersComponent } from './findteachers/findteachers.component';
     UserprofileComponent,
     ProfileComponent,
     SubjectComponent,
-    FindteachersComponent
+    FindteachersComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    AgmCoreModule,
+    RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBm9q2GJO-AMxroWf4r0aYWsTtSGZn9S0U'
+    })
   ],
   providers: [AuthService, IsLoggedInService, UserService, SubjectService],
   bootstrap: [AppComponent]
