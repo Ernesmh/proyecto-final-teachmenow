@@ -15,6 +15,13 @@ userController.get('/', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) 
 });
 
 
+userController.get('/teacher/:subject', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) => {
+  let subject = req.params.subject;
+  User.find({role:"teacher", subject:subject})
+  .populate('Subject')
+  .then( teacherList => {res.json(teacherList);})
+  .catch(err => { res.status(500).json(err);});
+});
 
 userController.get('/:id', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) => {
   let id = req.params.id;
