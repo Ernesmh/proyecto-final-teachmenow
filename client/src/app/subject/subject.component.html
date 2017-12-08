@@ -1,3 +1,13 @@
-<p>
-  subject works!
-</p>
+
+  <div class="cabecera"> <img class="profile_pic" src="https://es.barcelona.com/design/tourism/images//ba-2013/avatar-m.jpg" alt=""></div>
+  <div class="cuerpo">
+    <p style="width:60%">Necesitas ayuda... No te preocupes, ¡te echamos una mano!</p>
+    <h2 style="font-size:26px, width=40%">Encuentra tu profesor</h2><br>
+    <div *ngFor="let materia of subject" class="materias"  [routerLink]="['/subject', materia.name]">
+      <!-- <p>{{materia.name}}</p> -->
+      <img src="{{materia.image}}" alt="subject" style="width:30px; height:30px"><br>
+      <a>{{materia.name}}</a>
+    </div>
+
+    <button [routerLink]="['/profile']">Volver</button>
+  </div>

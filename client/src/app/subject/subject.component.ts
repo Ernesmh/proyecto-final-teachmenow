@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SubjectService } from '../services/subject.service';
+import {ActivatedRoute, Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-subject',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./subject.component.css']
 })
 export class SubjectComponent implements OnInit {
-
-  constructor() { }
-
+  subject:Array<Object> = [];
+  constructor(public subjectService:SubjectService) {
+    this.subjectService.getSubjectList().subscribe( subjectList =>{
+      this.subject = subjectList;
+    });
+    console.log("AQUI ESTOY")
+    console.log(this.subject);
+  }
   ngOnInit() {
   }
+
 
 }

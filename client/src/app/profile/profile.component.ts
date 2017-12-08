@@ -22,4 +22,10 @@ export class ProfileComponent{
     this.authService.isLoggedIn();
   }
 
+  logout() {
+      this.authService.logout()
+      .subscribe(() => this.router.navigate(['/login']));
+  }
+
+
 }

@@ -7,8 +7,9 @@
 
     <h3>Mi perfil:</h3>
     <p> blablabla</p>
-    <div class="botones"><button class="button look_subject" style="margin-bottom: 20px;">BUSCA AYUDA</button><br>
-    <button class="button logout"> CERRAR SESIÓN </button></div>
+    <div class="botones"><button class="button look_subject"
+      style="margin-bottom: 20px;" [routerLink]="['/subject']">BUSCA AYUDA</button><br>
+    <button class="button logout" (click)="logout()"> CERRAR SESIÓN </button></div>
   </div>
 
 </div>

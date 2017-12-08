@@ -10,11 +10,13 @@ import { AuthService } from './services/auth.service';
 import { RouterModule } from '@angular/router';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 import { UserService } from './services/user.service'
+import { SubjectService } from './services/subject.service'
 import {routes} from './routes';
 import { SignupformComponent } from './signupform/signupform.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SubjectComponent } from './subject/subject.component';
+import { FindteachersComponent } from './findteachers/findteachers.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { SubjectComponent } from './subject/subject.component';
     SignupformComponent,
     UserprofileComponent,
     ProfileComponent,
-    SubjectComponent
+    SubjectComponent,
+    FindteachersComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { SubjectComponent } from './subject/subject.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, IsLoggedInService, UserService],
+  providers: [AuthService, IsLoggedInService, UserService, SubjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
