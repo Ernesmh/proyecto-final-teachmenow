@@ -10,7 +10,7 @@
 }
 
 .profile_pic{
-  margin: 65px auto;
+
   width:35%;
   border:1px solid silver;
   border-radius: 100px;
@@ -27,6 +27,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  background-image: url("../../images/fondopizarra.jpg");
+  background-size: cover;
 }
 
 .logout{
@@ -37,9 +39,9 @@ margin: 0 auto;
 .look_subject{
   width:70%;
   padding:18px;
-  background-color:blue;
+  background-color:#298729;
   color:white;
-  border:1px solid blue;
+  border:1px solid #298729;
   border-radius: 50px;
   font-size:20px;
   font-weight: bold;
@@ -50,4 +52,19 @@ margin: 0 auto;
   bottom:0px;
   width:100%;
   height: 20vh;
+}
+
+h2, h3{
+  margin:0px;
+}
+
+p{
+  margin-bottom:15px;
+  margin-top:0px;
+}
+
+a{
+  color:#298729;
+  font-weight: bold;
+  text-decoration: none;
 }

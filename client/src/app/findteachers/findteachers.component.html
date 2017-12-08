@@ -1,9 +1,8 @@
 <p>
   findteachers works!
 </p>
-<agm-map [latitude]="lat" [longitude]="lng">
+<div class="map">
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
-<div *ngFor="let teach of teacher">
-{{this.teach.name}}
 </div>

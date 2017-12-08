@@ -1,5 +1,6 @@
 <div *ngIf='this.authService.getUser()'>
-  <div class="cabecera"> <img class="profile_pic" src="https://es.barcelona.com/design/tourism/images//ba-2013/avatar-m.jpg" alt=""></div>
+  <div class="cabecera"><img class="profile_pic" src="https://es.barcelona.com/design/tourism/images//ba-2013/avatar-m.jpg" alt=""></div>
+
 
   <div class="cuerpo">
     <h2> Bienvenido, {{this.authService.getUser().username}} </h2>

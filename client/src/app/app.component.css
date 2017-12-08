@@ -7,24 +7,38 @@ li{
 }
 
 #space{
+  position:absolute;
+  top:0px;
   width: 100vw;
   height: 100vh;
+  background-image: url("../images/fondolapices.jpg");
+  background-size: cover;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  font-size: 20px;
 
 }
 
 input{
   width:100%;
-  padding: 5px;
+  padding: 10px;
 }
 
 button{
   margin-top:20px;
   border:1px solid black;
   border-radius: 10px;
+
 }
 
 a{
   text-decoration: none;
   font-weight: bold;
-  color:blue;
+  color:#298729;
+}
+
+p{
+  font-size:15px;
 }
