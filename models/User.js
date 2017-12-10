@@ -14,7 +14,7 @@ const userSchema = new Schema({
   position: {latitude: Number, longitude: Number},
   phone: Number,
   avatar: String,
-
+  student_petitions: [{type:Schema.Types.ObjectId, ref:'User'}]
 });
 
 const User= mongoose.model("User", userSchema);

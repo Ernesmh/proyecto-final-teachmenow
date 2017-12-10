@@ -67,7 +67,7 @@ app.use('/auth', authController);
 app.use('/subject', subjectController);
 app.use('/user', userController);
 app.use('/rating', ratingController);
-// app.use('/meeting', meetingController);
+app.use('/meeting', meetingController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

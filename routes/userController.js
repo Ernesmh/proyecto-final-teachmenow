@@ -14,13 +14,27 @@ userController.get('/', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) 
   .catch(err => { res.status(500).json(err);});
 });
 
+userController.get('/profile', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) => {
+  User.findById(req.user._id)
+    .populate('student_petitions')
+    .then(user => res.status(200).json(user))
+    .catch(err => res.status(500).json({ message: 'Something went wrong'}));
+});
 
-userController.get('/teacher/:subject', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) => {
+userController.get('/teacher/:subject', ensureLogin.ensureLoggedIn ('/auth/login'), (req, res, next) => {
+  console.log('ENTROOOOOOOOOOOO');
   let subject = req.params.subject;
+  console.log(subject);
   User.find({role:"teacher", subject:subject})
   .populate('Subject')
   .then( teacherList => {res.json(teacherList);})
   .catch(err => { res.status(500).json(err);});
+});
+
+userController.post('/teacher/petition', ensureLogin.ensureLoggedIn('/login'), (req, res, next) => {
+  User.findByIdAndUpdate(req.body.id, {$push: {student_petitions: req.user._id}}, {new: true})
+    .then(teacher => res.status(200).json(teacher))
+    .catch(err => req.status(500).json({ message: 'Something went wrong'}));
 });
 
 userController.get('/:id', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) => {

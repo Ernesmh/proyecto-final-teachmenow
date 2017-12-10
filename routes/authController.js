@@ -30,7 +30,6 @@ authController.post('/signup', (req, res) => {
       username,
       password: hashPass,
       role,
-
     });
     console.log(theUser);
     return theUser.save();

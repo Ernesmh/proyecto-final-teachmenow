@@ -16,6 +16,7 @@ ratingController.get('/', ensureLogin.ensureLoggedIn ('/login'), (req, res, next
 ratingController.post('/new', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) => {
   const newRating = new Rating ({
     author: req.user._id,
+    teacher: '',
     genericLevel: req.body.genericLevel,
     punctualityLevel: req.body.punctualityLevel,
     skillsLevel: req.body.skillsLevel,
