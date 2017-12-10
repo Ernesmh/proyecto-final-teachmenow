@@ -12,7 +12,8 @@ const meetingSchema = new Schema({
       ref: 'User',
       required: true
     },
-    date: Date
+    date: Date,
+    status: {type: String, enum: ['done', 'undone']}
 });
 
 const Meeting= mongoose.model("Meeting", meetingSchema);

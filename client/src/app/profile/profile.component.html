@@ -1,16 +1,36 @@
-<div *ngIf='this.authService.getUser()'>
-  <div class="cabecera"><img class="profile_pic" src="https://es.barcelona.com/design/tourism/images//ba-2013/avatar-m.jpg" alt=""></div>
+<div *ngIf='user'>
+  <div class="cabecera">
+    <img class="profile_pic" src="https://es.barcelona.com/design/tourism/images//ba-2013/avatar-m.jpg" alt="">
+  </div>
 
 
   <div class="cuerpo">
-    <h2> Bienvenido, {{this.authService.getUser().username}} </h2>
-    <p> Para editar tus características, pulsa <a href="#">AQUÍ</a></p>
 
-    <h3>Mi perfil:</h3>
-    <p> blablabla</p>
-    <div class="botones"><button class="button look_subject"
-      style="margin-bottom: 20px;" [routerLink]="['/subject']">BUSCA AYUDA</button><br>
-    <button class="button logout" (click)="logout()"> CERRAR SESIÓN </button></div>
+    <h2 style="color: #298729"> Bienvenido, {{user.username}} </h2>
+    <p style="margin: 20px 10px"> Para editar tus características, pulsa <a href="#">AQUÍ</a></p>
+
+    <h3>Citas concertadas</h3>
+    <div *ngFor="let de of meeting" style="margin-bottom:20px">Profesor: {{de.teacher.username}} <br>Fecha: {{de.date}}</div>
+
+    <div *ngIf="teach" style="margin-bottom:20px">
+
+        <h2>Peticiones pendientes: </h2>
+        <div *ngFor="let student of user.student_petitions" class="pendiente">
+          <h3 style="margin-bottom:0px; color: #298729">{{student.username}}</h3> Alumno de {{student.level}}
+          <p style="margin-bottom: 0px">Teléfono: {{student.phone}}</p>
+          <p style="margin-bottom: 0px">Mail: {{student.email}}</p>
+            <button (click)="closeMeeting(student._id)">Meet Student</button>
+        </div>
+
+
+    </div>
+    <div *ngIf="!teach"><button class="button" [routerLink]="['/subject']">BUSCA AYUDA</button><br>
+    </div>
+    <button class="button logout" (click)="logout()"> CERRAR SESIÓN </button>
   </div>
+
+
+
+
 
 </div>

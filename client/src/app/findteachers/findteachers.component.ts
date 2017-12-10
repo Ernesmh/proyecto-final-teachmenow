@@ -3,6 +3,7 @@ import { UserService } from '../services/user.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { AgmCoreModule } from '@agm/core'
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window'
 
 @Component({
   selector: 'app-findteachers',
@@ -10,20 +11,28 @@ import { AgmCoreModule } from '@agm/core'
   styleUrls: ['./findteachers.component.css']
 })
 export class FindteachersComponent implements OnInit {
-  teacher: Array<Object>=[];
+  user: Array<Object>=[];
   lat: number = 40.392597;
   lng: number = -3.698288;
   constructor(public router:Router, public authService: AuthService, public userService: UserService, public route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.authService.isLoggedIn();
-
+    //this.authService.isLoggedIn();
+    this.getTeachersSubject()
   }
 
-  getUserBySubject(){
+  getTeachersSubject(){
     this.route.params.subscribe(params => {
       this.userService.getUserBySubject(params['subject'])
-        .subscribe(teacher => this.teacher = teacher);
-})
+        .subscribe(user => {
+          console.log(user)
+          this.user = user});
+        })
+      }
 
-}}
+wantTeacher(teacherID){
+    this.userService.wantTeacherService(teacherID)
+      .subscribe(res => console.log(res))
+}
+
+}

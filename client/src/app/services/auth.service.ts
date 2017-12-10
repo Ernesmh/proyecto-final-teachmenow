@@ -8,10 +8,13 @@ const BASEURL = environment.BASEURL + "/auth";
 
 @Injectable()
 export class AuthService {
-
+  student = {
+    id : '',
+  }
   private user:object;
   private userLoginEvent:EventEmitter<any> = new EventEmitter<any>();
-  private options = {withCredentials:true};
+  private headers = new Headers({ 'Content-type': 'application/json'});
+  private options = new RequestOptions({ headers: this.headers, withCredentials:true});
 
   constructor(private http: Http) {
     this.isLoggedIn().subscribe();
@@ -22,7 +25,22 @@ export class AuthService {
     }
 
     getUser(){
-      return this.user;
+      return this.http.get(`${environment.BASEURL}/user/profile`, this.options)
+        .map(res => res.json())
+    }
+
+    closeMeetingService(studentID){
+      this.student.id = studentID;
+      console.log(this.student)
+      return this.http.post(`${environment.BASEURL}/meeting/new`, JSON.stringify(this.student) , this.options)
+        .map(res => res.json())
+    }
+
+    findMeetings(userID){
+      console.log("8====D ({})")
+      console.log(`${environment.BASEURL}/meeting/${userID}`)
+        return this.http.get(`${environment.BASEURL}/meeting/${userID}`, this.options)
+        .map(res => res.json())
     }
 
     private emitUserLoginEvent(user){

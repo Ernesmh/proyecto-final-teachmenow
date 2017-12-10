@@ -18,6 +18,8 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SubjectComponent } from './subject/subject.component';
 import { FindteachersComponent } from './findteachers/findteachers.component';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window'
+
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { FindteachersComponent } from './findteachers/findteachers.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    AgmSnazzyInfoWindowModule,
     AgmCoreModule,
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
