@@ -21,5 +21,8 @@ export class NavbarComponent implements OnInit {
       .subscribe(() => this.router.navigate(['/login']));
   }
 
+  goEditing() {
+    this.router.navigate(['/profile', 'edit']);
+  }
 
 }

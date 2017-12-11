@@ -1,0 +1,41 @@
+<div class="form-container">
+
+    <label> Nombre </label><br>
+    <input style="margin-bottom: 15px;"type="text" [(ngModel)]="formInfo.username" name="username"/>
+    <br>
+    <label> Rol </label>
+    <select  name='role' [(ngModel)]="formInfo.role" style="width:85%">
+      <option value='teacher' selected>profesor</option>
+      <option value='student'>alumno</option>
+    </select><br>
+
+    <label> Materia </label>
+    <select name='subject' [(ngModel)]="formInfo.subject" style="width:70%">
+      <option value='Informática' selected>Informática</option>
+      <option value='Matemáticas'>Matemáticas</option>
+      <option value='Lengua' selected>Lengua</option>
+      <option value='Historia'>Historia</option>
+    </select><br>
+
+    <label> Precio por hora </label><br>
+    <input style="margin-bottom: 15px;" type="number" [(ngModel)]="formInfo.price_per_hour" name="price_per_hour"/><br>
+
+    <label> Nivel </label><br>
+    <input style="margin-bottom: 5px;"type="text" [(ngModel)]="formInfo.level" name="level"/>
+    <br>
+    <label> Email </label><br>
+    <input style="margin-bottom: 15px;" type="text" [(ngModel)]="formInfo.email" name="email"/><br>
+
+    <label> Teléfono </label><br>
+    <input style="margin-bottom: 5px;"type="number" [(ngModel)]="formInfo.phone" name="phone"/>
+    <br>
+    <!--
+    <label> Avatar </label><br> -->
+
+    <br>
+    <label> Descripción breve </label><br>
+    <input style="margin-bottom: 15px;" type="text" [(ngModel)]="formInfo.description" name="description"/><br>
+
+    <button>Hecho</button>
+
+</div>

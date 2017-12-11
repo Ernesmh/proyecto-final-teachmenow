@@ -22,7 +22,8 @@ import { FindteachersComponent } from './findteachers/findteachers.component';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { ProfdetailsComponent } from './profdetails/profdetails.component';
 import { RatingComponent } from './rating/rating.component';
-import { NavbarComponent } from './navbar/navbar.component'
+import { NavbarComponent } from './navbar/navbar.component';
+import { EditformComponent } from './editform/editform.component'
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { NavbarComponent } from './navbar/navbar.component'
     ProfdetailsComponent,
     RatingComponent,
     NavbarComponent,
+    EditformComponent,
 
   ],
   imports: [
