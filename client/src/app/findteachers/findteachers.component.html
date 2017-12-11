@@ -2,8 +2,8 @@
 
 <div class="map">
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="15">
-  <div *ngFor="let rerere of this.user">
-    <agm-marker [latitude]="lat" [longitude]="lng">
+  <div *ngFor="let teacher of this.user">
+    <agm-marker [latitude]="teacher.position.latitude" [longitude]="teacher.position.longitude">
       <!-- <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
       <ng-template class="ng-template">
         {{rerere.username}}{{rerere.rating}}{{rerere.price_per_hour}}
@@ -13,10 +13,13 @@
 </agm-map>
 </div>
 
-<div *ngFor="let prof of this.user" style="line-height:25px">
+<div *ngFor="let prof of this.user" style="line-height:25px" class="materias">
   <h2 style="margin-bottom: 0px">{{prof.username}}</h2>
   <p >Precio por hora: <b>{{prof.price_per_hour}}€</b></p>
   <p>Valoración global: {{prof.rating}}</p>
-     <button (click)="wantTeacher(prof._id)">Contactar</button>
+    <button [routerLink]="[prof._id]">Ver Info</button>
+     <button (click)="wantTeacher(prof._id)">Citar</button>
 
 </div>
+
+  <button [routerLink]="['/subject']">Volver</button>

@@ -13,20 +13,26 @@ ratingController.get('/', ensureLogin.ensureLoggedIn ('/login'), (req, res, next
   .catch(err => { res.status(500).json(err);});
 });
 
-ratingController.post('/new', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) => {
+ratingController.post('/new/:id', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) => {
+  let id = req.params.id;
   const newRating = new Rating ({
     author: req.user._id,
-    teacher: '',
     genericLevel: req.body.genericLevel,
     punctualityLevel: req.body.punctualityLevel,
     skillsLevel: req.body.skillsLevel,
     comment: req.body.comment
-
   });
 
   newRating.save()
-    .then(() => console.log("new rating created"))
-    .catch(err => next(err));
+  .then(user => {
+    User.findByIdAndUpdate({"_id": req.params.id}, {$push: {rating: req.body.genericLevel}}, {new: true})
+      .then(user => {
+        console.log(user);
+        res.status(200).json(user);
+      });
+  })
+  .catch(err => res.status(500).json({ message : 'Something went wrong'}));
 });
+
 
 module.exports = ratingController;

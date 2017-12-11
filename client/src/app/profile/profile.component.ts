@@ -59,6 +59,11 @@ export class ProfileComponent{
         })
         this.meeting = meeting
       })
-       
+
   }
+
+  goRating(id){
+    console.log(id)
+    this.router.navigate(['/rating/new', id])
+  };
 }

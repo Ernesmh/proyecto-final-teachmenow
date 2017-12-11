@@ -1,20 +1,23 @@
 <div *ngIf='user'>
   <div class="cabecera">
-    <img class="profile_pic" src="https://es.barcelona.com/design/tourism/images//ba-2013/avatar-m.jpg" alt="">
+    <img class="profile_pic" src="{{user.avatar}}" alt="">
   </div>
 
 
   <div class="cuerpo">
 
     <h2 style="color: #298729"> Bienvenido, {{user.username}} </h2>
-    <p style="margin: 20px 10px"> Para editar tus características, pulsa <a href="#">AQUÍ</a></p>
-
-    <h3>Citas concertadas</h3>
-    <div *ngFor="let de of meeting" style="margin-bottom:20px">Profesor: {{de.teacher.username}} <br>Fecha: {{de.date}}</div>
+    <p style="margin: 0px 10px"> Para editar tus características, pulsa <a href="#">AQUÍ</a></p>
+    <h2 style="margin-top:10px">Citas: </h2>
+    <div *ngFor="let de of meeting" style="margin-bottom:20px; padding:20px;"
+    class="pendiente">Profesor: {{de.teacher.username}} <br>Fecha: {{de.date}} <br>
+    <button class="button" style="width:50%; height: 5vh;margin-top:10px; margin-bottom:0px;"
+    (click)="goRating(de.teacher._id)">Hecha!</button>
+  </div>
 
     <div *ngIf="teach" style="margin-bottom:20px">
 
-        <h2>Peticiones pendientes: </h2>
+        <h2 style="margin-top:10px">Peticiones pendientes: </h2>
         <div *ngFor="let student of user.student_petitions" class="pendiente">
           <h3 style="margin-bottom:0px; color: #298729">{{student.username}}</h3> Alumno de {{student.level}}
           <p style="margin-bottom: 0px">Teléfono: {{student.phone}}</p>

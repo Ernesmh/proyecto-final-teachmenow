@@ -6,7 +6,9 @@
   <label> Password </label><br>
   <input style="margin-bottom: 15px;" type="password" [(ngModel)]="formInfo.password" name="password"/><br>
 
-  <button class="button" (click)="login()"> Entrar </button>
-  
+  <button class="button" (click)="login()"> Entrar </button><br>
+
+  <p style="margin-top:10px">No estás registrado? Hazlo <a href="">Aquí</a></p>
+
 </form>
 {{ this.error }}

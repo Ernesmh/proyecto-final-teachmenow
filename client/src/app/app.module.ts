@@ -12,13 +12,16 @@ import { RouterModule } from '@angular/router';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 import { UserService } from './services/user.service'
 import { SubjectService } from './services/subject.service'
+import { RatingService } from './services/rating.service'
 import {routes} from './routes';
 import { SignupformComponent } from './signupform/signupform.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SubjectComponent } from './subject/subject.component';
 import { FindteachersComponent } from './findteachers/findteachers.component';
-import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window'
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import { ProfdetailsComponent } from './profdetails/profdetails.component';
+import { RatingComponent } from './rating/rating.component'
 
 
 @NgModule({
@@ -32,6 +35,8 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window'
     ProfileComponent,
     SubjectComponent,
     FindteachersComponent,
+    ProfdetailsComponent,
+    RatingComponent,
 
   ],
   imports: [
@@ -45,7 +50,7 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window'
       apiKey: 'AIzaSyBm9q2GJO-AMxroWf4r0aYWsTtSGZn9S0U'
     })
   ],
-  providers: [AuthService, IsLoggedInService, UserService, SubjectService],
+  providers: [AuthService, IsLoggedInService, UserService, SubjectService, RatingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

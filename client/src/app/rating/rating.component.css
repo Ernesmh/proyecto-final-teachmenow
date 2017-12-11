@@ -1,0 +1,30 @@
+.ponct-info{
+  width: 90 vw;
+  height:80%;
+  margin: 4vh;
+  margin-bottom: 5px;
+  color:black;
+  background-color: rgba(255, 255, 255, 0.9);
+  line-height:20px;
+  border:1px solid #298729;
+  border-radius: 20px;
+  padding:20px;
+}
+
+button{
+  width:40vw;
+  margin-bottom: 20px;
+  height: 6vh;
+  background-color:#298729;
+  color:white;
+  border: 1px solid #298729;
+  border-radius: 20px;
+  cursor:pointer;
+  font-size:20px;
+  font-weight: bold;
+  font-family: 'Indie Flower', cursive;
+}
+
+h2{
+  margin-top:0;
+}
