@@ -1,14 +1,12 @@
-<div *ngIf='user'>
-  <div class="cabecera">
-    <img class="profile_pic" src="{{user.avatar}}" alt="">
-  </div>
+<app-navbar></app-navbar>
 
+<div *ngIf='user'>
 
   <div class="cuerpo">
 
     <h2 style="color: #298729"> Bienvenido, {{user.username}} </h2>
     <p style="margin: 0px 10px"> Para editar tus características, pulsa <a href="#">AQUÍ</a></p>
-    <h2 style="margin-top:10px">Citas: </h2>
+    <h2 style="margin-top:10px" *ngIf="!teach">Citas: </h2>
     <div *ngFor="let de of meeting" style="margin-bottom:20px; padding:20px;"
     class="pendiente">Profesor: {{de.teacher.username}} <br>Fecha: {{de.date}} <br>
     <button class="button" style="width:50%; height: 5vh;margin-top:10px; margin-bottom:0px;"
@@ -22,14 +20,14 @@
           <h3 style="margin-bottom:0px; color: #298729">{{student.username}}</h3> Alumno de {{student.level}}
           <p style="margin-bottom: 0px">Teléfono: {{student.phone}}</p>
           <p style="margin-bottom: 0px">Mail: {{student.email}}</p>
-            <button (click)="closeMeeting(student._id)">Meet Student</button>
+            <button class="button" (click)="closeMeeting(student._id)">Confirmar</button>
         </div>
 
 
     </div>
     <div *ngIf="!teach"><button class="button" [routerLink]="['/subject']">BUSCA AYUDA</button><br>
     </div>
-    <button class="button logout" (click)="logout()"> CERRAR SESIÓN </button>
+    
   </div>
 
 

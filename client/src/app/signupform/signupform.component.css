@@ -1,0 +1,37 @@
+button{
+    background-color:#298729;
+    color:white;
+    border: 1px solid #298729;
+    border-radius: 20px;
+    padding:8px 20px;
+    font-size:18px;
+    font-weight: bold;
+    cursor:pointer;
+    font-family: 'Indie Flower', cursive;
+    margin-bottom:20px;
+
+}
+input{
+  width:90%;
+  padding: 6px 0;
+  font-size:20px;
+  margin-bottom: 20px;
+}
+
+.sigform{
+
+    width: 90 vw;
+    height:90%;
+    margin: 4vh;
+    color:black;
+    background-color: rgba(255, 255, 255, 0.9);
+    line-height:15px;
+    border:1px solid #298729;
+    border-radius: 20px;
+
+}
+
+select{
+  margin:20px auto;
+  height: 35px;
+}

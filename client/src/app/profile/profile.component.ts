@@ -23,8 +23,6 @@ export class ProfileComponent{
   ngOnInit() {
     this.authService.isLoggedIn();
     this.profileData();
-
-
   }
 
   logout() {

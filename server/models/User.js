@@ -8,7 +8,7 @@ const userSchema = new Schema({
   subject: String,
   isAvailable: Boolean,
   price_per_hour: Number,
-  rating: Number,
+  rating: Array,
   level: {type: String, enum: ['Secundaria', 'Bachillerato', 'Universidad/FP', 'Postgrado']},
   email: String,
   position: {latitude: Number, longitude: Number},

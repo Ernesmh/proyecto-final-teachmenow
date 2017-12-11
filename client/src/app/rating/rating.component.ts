@@ -23,7 +23,7 @@ export class RatingComponent implements OnInit {
   }
 
   createRating(teacherID){
-    console.log("wooo")
+  
       this.route.params.subscribe(params => {
         this.ratingService.rateTeacherService(params['teacherid'])
           .subscribe(user => {

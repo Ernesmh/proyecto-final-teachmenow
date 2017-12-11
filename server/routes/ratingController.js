@@ -13,20 +13,23 @@ ratingController.get('/', ensureLogin.ensureLoggedIn ('/login'), (req, res, next
   .catch(err => { res.status(500).json(err);});
 });
 
-ratingController.post('/new/:id', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) => {
+ratingController.post('/new/:id', (req, res, next) => {
+  console.log("llego al BAAACK" + req.params.id);
+  console.log("PACOOOOOOOO");
   let id = req.params.id;
   const newRating = new Rating ({
-    author: req.user._id,
+    // author: req.user._id,
     genericLevel: req.body.genericLevel,
     punctualityLevel: req.body.punctualityLevel,
     skillsLevel: req.body.skillsLevel,
     comment: req.body.comment
   });
-
+  console.log(newRating);
   newRating.save()
   .then(user => {
-    User.findByIdAndUpdate({"_id": req.params.id}, {$push: {rating: req.body.genericLevel}}, {new: true})
+    User.findByIdAndUpdate({"_id": id}, {$push: {rating: req.body.genericLevel}}, {new: true})
       .then(user => {
+        console.log("ENTRO HASTA AQUI");
         console.log(user);
         res.status(200).json(user);
       });

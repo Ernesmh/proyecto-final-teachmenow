@@ -21,7 +21,8 @@ import { SubjectComponent } from './subject/subject.component';
 import { FindteachersComponent } from './findteachers/findteachers.component';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { ProfdetailsComponent } from './profdetails/profdetails.component';
-import { RatingComponent } from './rating/rating.component'
+import { RatingComponent } from './rating/rating.component';
+import { NavbarComponent } from './navbar/navbar.component'
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { RatingComponent } from './rating/rating.component'
     FindteachersComponent,
     ProfdetailsComponent,
     RatingComponent,
+    NavbarComponent,
 
   ],
   imports: [

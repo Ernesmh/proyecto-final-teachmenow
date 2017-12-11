@@ -1,15 +1,20 @@
 
-
+<div class="sigform">
 <form >
-  <h2> Signup </h2>
-  <label> Username </label><br><br>
-  <input type="text" [(ngModel)]="formInfo.username" name="username"/><br><br>
+  <h2> Nuevo Usuario </h2>
+  <label> Nombre </label><br><br>
+  <input type="text" (ngModel)]="formInfo.username" name="username"/>
   <br>
-  <label> Password </label><br><br>
-  <input type="password" [(ngModel)]="formInfo.password" name="password"/><br><br>
+  <label> Contraseña </label><br><br>
+  <input type="password" [(ngModel)]="formInfo.password" name="password"/>
 
-  <label> Role </label><br>
-  <input type="text" [(ngModel)]="formInfo.role" name="role"/><br>
+  <label> Rol </label><br>
+  <select name='role' [(ngModel)]="formInfo.role" style="width:70%">
+    <option value='teacher' selected>profesor</option>
+    <option value='student'>alumno</option>
+  </select>
 
-  <button class="button" (click)="signup()"> signup </button>
+
+  <button class="button" (click)="signup()"> Hecho </button>
 </form>
+</div>
