@@ -51,20 +51,16 @@ userController.get('/:id/edit', ensureLogin.ensureLoggedIn ('/login'), (req, res
   .catch(err => { res.status(500).json(err);});
 });
 
-userController.post('/:id/edit', ensureLogin.ensureLoggedIn ('/login'), upload.single('avatar'),(req, res, next) => {
+userController.post('/:id/edit', (req, res, next) => {
+  console.log('este es mi body: ' + req.body);
   let id  = req.params.id;
+  console.log('este es mi id: '+ id);
+const {username, role, subject, price_per_hour, level, email, phone, description} = req.body;
 
-    const updates = {
-    username: req.body.username,
-    password: req.body.password,
-    role:req.body.role,
-    email: req.body.email,
-    position: {latitude: req.body.latitude, longitude: req.body.longitude},
-    phone: req.body.phone,
-    avatar: req.file.filename,
-  };
+  console.log('me cago en la puta ya');
+  console.log(username, role, subject, price_per_hour, level, email, phone, description);
 
-  User.findByIdAndUpdate(id, updates, {new: true})
+  User.findByIdAndUpdate(id, {username, role, subject, price_per_hour, level, email, phone, description}, {new: true})
        .then(o => res.json(o))
        .catch(e => res.json(e));
 });
