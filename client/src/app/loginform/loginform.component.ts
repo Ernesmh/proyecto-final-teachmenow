@@ -45,4 +45,8 @@ export class LoginformComponent implements OnInit {
     }
   }
 
+  goLogin(){
+    this.router.navigate(['/signup']);
+  }
+
 }

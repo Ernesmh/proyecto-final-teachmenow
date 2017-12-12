@@ -4,7 +4,7 @@
   <p style="font-family: 'Montserrat', sans-serif;">({{user.subject}})</p>
   <h3 ><b>Perfil</b></h3>
   <p>{{user.description}}</p>
-  <h4 style="font-family: 'Montserrat', sans-serif; font-size:20px"><b>Valoración: </b> {{user.rating}}/5</h4>
+  <h4 style="font-family: 'Montserrat', sans-serif; font-size:20px"><b>Valoración: </b> {{ media }}/5</h4>
   <h4 style="font-family: 'Montserrat', sans-serif; font-size:20px"><b>Precio por hora: {{user.price_per_hour}}€</b></h4>
   <button (click)= "getBack()">Volver</button>
 </div>

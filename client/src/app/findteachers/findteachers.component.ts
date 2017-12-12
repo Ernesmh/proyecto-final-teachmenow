@@ -16,6 +16,7 @@ export class FindteachersComponent implements OnInit {
   lng: number = -3.698328;
   constructor(public router:Router, public authService: AuthService, public userService: UserService, public route:ActivatedRoute) { }
 
+
   ngOnInit() {
     //this.authService.isLoggedIn();
     this.getTeachersSubject()
@@ -25,7 +26,8 @@ export class FindteachersComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.userService.getUserBySubject(params['subject'])
         .subscribe(user => {
-          console.log(user)
+          console.log(user),
+
           this.user = user});
         })
       }

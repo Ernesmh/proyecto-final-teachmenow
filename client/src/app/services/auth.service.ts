@@ -37,8 +37,6 @@ export class AuthService {
     }
 
     findMeetings(userID){
-      console.log("8====D ({})")
-      console.log(`${environment.BASEURL}/meeting/${userID}`)
         return this.http.get(`${environment.BASEURL}/meeting/${userID}`, this.options)
         .map(res => res.json())
     }

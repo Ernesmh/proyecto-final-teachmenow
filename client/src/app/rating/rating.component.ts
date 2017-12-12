@@ -10,8 +10,14 @@ import {AuthService } from '../services/auth.service';
   styleUrls: ['./rating.component.css']
 })
 export class RatingComponent implements OnInit {
-  user: Array<Object>=[];
-  teacher: Object;
+  user: any;
+  teacher: any;
+  ratingInfo = {
+    genericLevel: 0,
+    punctualityLevel: 0,
+    skillsLevel: 0,
+    comment: ""
+  };
   constructor(public router:Router, public authService:AuthService, public ratingService:RatingService, public userService:UserService, public route:ActivatedRoute) { }
 
   ngOnInit() {
@@ -26,16 +32,13 @@ export class RatingComponent implements OnInit {
     this.router.navigate(['/profile'])
   }
 
-  createRating(teacherID, user){
-      console.log("este es el usuario" + this.user)
-      user=this.user;
-      this.route.params.subscribe(params => {
-        this.ratingService.rateTeacherService(params['teacherid'], user)
-          .subscribe(user => {
-            console.log("eoooo" + user)
-            this.user = user});
-          })
-
-    this.router.navigate(['/profile'])
+  createRating(){
+    const {genericLevel, punctualityLevel, skillsLevel, comment} = this.ratingInfo
+        this.ratingService.rateTeacherService(this.teacher._id, this.user._id, this.ratingInfo)
+          .subscribe(res => {
+            console.log(res);
+          });
   }
 }
+
+    // this.router.navigate(['/profile'])

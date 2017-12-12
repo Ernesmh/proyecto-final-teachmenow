@@ -6,7 +6,7 @@ const ratingSchema = new Schema({
   genericLevel: {type:Number, enum: ['1','2', '3','4','5']},
   punctualityLevel: {type:Number, enum: ['1','2', '3','4','5']},
   skillsLevel: {type:Number, enum: ['1','2', '3','4','5']},
-  comment: {type:Number, enum: ['1','2', '3','4','5']},
+  comment: String,
 });
 
 const Rating = mongoose.model("Rating", ratingSchema);

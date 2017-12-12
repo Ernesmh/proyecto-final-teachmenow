@@ -1,10 +1,10 @@
-<div class="ponct-info">
+<div class="ponct-info" *ngIf="teacher">
   <img src="" class="profile_pic" alt="">
   <h2>¡ Puntúa a <span style="color: #298729">{{teacher.username}}</span> !</h2>
   Recuerda que estas puntuaciones ayudan a tu profesor.
 
   <h4><b>¿Que nota le pondrías?</b>
-  <select name='genericLevel'>
+  <select name='genericLevel' [(ngModel)]="ratingInfo.genericLevel">
     <option value='1'>1</option>
     <option value='2'>2</option>
     <option value='3'>3</option>
@@ -13,7 +13,7 @@
   </select></h4>
 
   <h4><b>¿Cómo fue de puntual?</b>
-  <select name='punctualityLevel' >
+  <select name='punctualityLevel' [(ngModel)]="ratingInfo.punctualityLevel">
     <option value='1'>1</option>
     <option value='2'>2</option>
     <option value='3'>3</option>
@@ -21,7 +21,7 @@
     <option value='5'>5</option>
   </select></h4>
   <h4><b>¿Conocimientos?</b>
-  <select name='skillsLevel'>
+  <select name='skillsLevel' [(ngModel)]="ratingInfo.skillsLevel">
     <option value='1'>1</option>
     <option value='2'>2</option>
     <option value='3'>3</option>
@@ -31,7 +31,7 @@
 
   <h4 style="text-decoration: underline; margin-bottom:5px;"><b>Comentarios: </b></h4>
   <textarea name="comment" style="font-family: 'Indie Flower', cursive;"
-   placeholder="¿Algo que te molestara? ¿Recomendarías?" rows="6" cols="25"></textarea>
+   placeholder="¿Algo que te molestara? ¿Recomendarías?" rows="6" cols="25" [(ngModel)]="ratingInfo.comment"></textarea>
 
   <p style="margin-bottom: 10px;"><button style="margin-bottom: 0px;"(click)= "createRating()">Hecho!</button></p>
 

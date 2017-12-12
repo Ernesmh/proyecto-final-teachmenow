@@ -8,7 +8,7 @@
 
   <button class="button" (click)="login()"> Entrar </button><br>
 
-  <p style="margin-top:10px">No estás registrado? Hazlo <a [routerLink]="['/signup']">Aquí</a></p>
+  <p style="margin-top:10px">No estás registrado? Hazlo <a (click)="goLogin()" >Aquí</a></p>
 
 </form>
 {{ this.error }}

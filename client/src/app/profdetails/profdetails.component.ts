@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 export class ProfdetailsComponent implements OnInit {
 user: Array<Object>=[];
   constructor(public router:Router, public authService: AuthService, public userService: UserService, public route:ActivatedRoute) { }
-
+  media:Number =0;
   ngOnInit() {
     this.authService.isLoggedIn();
     this.getTeacherById()
@@ -22,7 +22,7 @@ user: Array<Object>=[];
     this.route.params.subscribe(params => {
       this.userService.wantTeacherService(params['teacherid'])
         .subscribe(user => {
-          console.log(user)
+          this.media = user.rating.reduce((a,b) => { return a+= b },0)/user.rating.length;
           this.user = user});
         })
       }
