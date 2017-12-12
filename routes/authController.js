@@ -8,7 +8,6 @@ const ensureLogin = require("connect-ensure-login");
 
 
 authController.post('/signup', (req, res) => {
-  console.log(req.body);
   const {username, password, role} = req.body;
 
   if (!username || !password || !role) {

@@ -22,9 +22,7 @@ userController.get('/profile', ensureLogin.ensureLoggedIn ('/login'), (req, res,
 });
 
 userController.get('/teacher/:subject', ensureLogin.ensureLoggedIn ('/auth/login'), (req, res, next) => {
-  console.log('ENTROOOOOOOOOOOO');
   let subject = req.params.subject;
-  console.log(subject);
   User.find({role:"teacher", subject:subject})
   .populate('Subject')
   .then( teacherList => {res.json(teacherList);})
@@ -52,9 +50,7 @@ userController.get('/:id/edit', ensureLogin.ensureLoggedIn ('/login'), (req, res
 });
 
 userController.post('/:id/edit', (req, res, next) => {
-  console.log('este es mi body: ' + req.body);
   let id  = req.params.id;
-  console.log('este es mi id: '+ id);
 const {username, role, subject, price_per_hour, level, email, phone, description} = req.body;
 
   console.log('me cago en la puta ya');
