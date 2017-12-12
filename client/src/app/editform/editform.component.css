@@ -24,7 +24,7 @@ select{
 button{
   width:40vw;
   margin-bottom: 20px;
-  height: 6vh;
+  height: 6 vh;
   background-color:#298729;
   color:white;
   border: 1px solid #298729;

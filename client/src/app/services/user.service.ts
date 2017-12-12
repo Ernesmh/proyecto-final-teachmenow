@@ -32,4 +32,13 @@ export class UserService {
                 .map(res => res.json());
   }
 
+
+  updateUser(userid, username, role, subject, price_per_hour, level, email, phone, description){
+    console.log("usuario en el servicio" + JSON.stringify(userid));
+    console.log(username, role, subject, price_per_hour, level, email, phone, description)
+    return this.http.post(`${BASEURL}/${userid}/edit`,
+       {userid, username, role, subject, price_per_hour, level, email, phone, description}, this.options)
+                .map(res => res.json());
+  }
+
 }
