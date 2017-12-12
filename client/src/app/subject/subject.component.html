@@ -1,14 +1,14 @@
 <app-navbar></app-navbar>
-  
+
   <div class="cuerpo">
 
-    <p style="width:60%">Necesitas ayuda... No te preocupes, ¡te echamos una mano!</p><br>
-    <h2 style="font-size:26px, width:40%">Encuentra tu profesor</h2><br>
-    <div *ngFor="let materia of subject" class="materias"  [routerLink]="['/subject', materia.name]">
+    <p style="width:100%">Necesitas ayuda... No te preocupes, ¡te echamos una mano!</p><br>
+    <h2 style="font-size:26px, width:40%; font-family: 'Indie Flower', cursive;">Encuentra tu profesor</h2><br>
+    <div style="font-family: 'Indie Flower', cursive;" *ngFor="let materia of subject" class="materias"  [routerLink]="['/subject', materia.name]">
       <!-- <p>{{materia.name}}</p> -->
       <img src="{{materia.image}}" alt="subject" style="width:50%; height:50%"><br>
       {{materia.name}}
     </div>
 
-    <button [routerLink]="['/profile']">Volver</button>
+    <button class="button" [routerLink]="['/profile']">Volver</button>
   </div>

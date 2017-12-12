@@ -15,8 +15,8 @@
 
 <div *ngFor="let prof of this.user" style="line-height:25px" class="materias">
   <h2 style="margin-bottom: 0px">{{prof.username}}</h2>
-  <p >Precio por hora: <b>{{prof.price_per_hour}}€</b></p>
-  <p>Valoración global: {{prof.rating}}</p>
+  <p style="font-family: 'Montserrat', sans-serif; font-size: 16px;">Precio por hora: <b>{{prof.price_per_hour}}€</b></p>
+  <p style="font-family: 'Montserrat', sans-serif; font-size: 16px;">Valoración global: {{prof.rating}}/5</p>
     <button [routerLink]="[prof._id]">Ver Info</button>
      <button (click)="wantTeacher(prof._id)">Citar</button>
 

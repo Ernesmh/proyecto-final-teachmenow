@@ -1,6 +1,6 @@
 .ponct-info{
   width: 90 vw;
-  height:80%;
+  height:90%;
   margin: 4vh;
   margin-bottom: 5px;
   color:black;
@@ -8,12 +8,13 @@
   line-height:20px;
   border:1px solid #298729;
   border-radius: 20px;
-  padding:20px;
+  padding: 0 20px;
+
 }
 
 button{
   width:40vw;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   height: 6vh;
   background-color:#298729;
   color:white;
@@ -27,4 +28,9 @@ button{
 
 h2{
   margin-top:0;
+}
+
+h4{
+  font-family: 'Montserrat', sans-serif;
+  font-size:16px;
 }

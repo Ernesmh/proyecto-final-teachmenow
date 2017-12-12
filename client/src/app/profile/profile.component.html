@@ -4,11 +4,12 @@
 
   <div class="cuerpo">
 
-    <h2 style="color: #298729"> Bienvenido, {{user.username}} </h2>
-    <p style="margin: 0px 10px"> Para editar tus características, pulsa <a href="#">AQUÍ</a></p>
-    <h2 style="margin-top:10px" *ngIf="!teach">Citas: </h2>
+    <h2 style="color: #298729;font-family: 'Indie Flower', cursive;margin-bottom:15px"> Bienvenido, {{user.username}} </h2>
+    <p style="margin: 10px 10px"> Para editar tus características, pulsa <a href="#">AQUÍ</a></p>
+    <h2 style="margin:20px" *ngIf="!teach">Citas: </h2>
     <div *ngFor="let de of meeting" style="margin-bottom:20px; padding:20px;"
-    class="pendiente">Profesor: {{de.teacher.username}} <br>Fecha: {{de.date}} <br>
+    class="pendiente"><b>Profesor: </b><span style="font-family: 'Indie Flower', cursive; font-size:25px">{{de.teacher.username}}</span>
+     <br><b>Fecha: </b><span style="font-family: 'Indie Flower', cursive; font-size:25px">{{de.date}}</span> <br>
     <button class="button" style="width:50%; height: 5vh;margin-top:10px; margin-bottom:0px;"
     (click)="goRating(de.teacher._id)">Hecha!</button>
   </div>
@@ -27,7 +28,7 @@
     </div>
     <div *ngIf="!teach"><button class="button" [routerLink]="['/subject']">BUSCA AYUDA</button><br>
     </div>
-    
+
   </div>
 
 
