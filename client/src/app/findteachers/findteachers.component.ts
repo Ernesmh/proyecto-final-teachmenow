@@ -34,7 +34,8 @@ export class FindteachersComponent implements OnInit {
 
 wantTeacher(teacherID){
     this.userService.wantTeacherService(teacherID)
-      .subscribe(res => console.log(res))
+      .subscribe(res => console.log(res));
+      this.router.navigate(['/profile'])
 }
 
 }

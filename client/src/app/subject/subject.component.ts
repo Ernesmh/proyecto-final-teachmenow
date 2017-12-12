@@ -14,8 +14,7 @@ export class SubjectComponent implements OnInit {
     this.subjectService.getSubjectList().subscribe( subjectList =>{
       this.subject = subjectList;
     });
-    console.log("AQUI ESTOY")
-    console.log(this.subject);
+  
   }
   ngOnInit() {
   }

@@ -19,12 +19,16 @@ a{
   margin: 0 10px;
   margin-bottom: 20px;
   vertical-align: middle;
+  width: 110px;
 }
 
-a:hover{
-  font-size: 20px;
-}
 
 b{
   line-height:50px;
+}
+
+content{
+  vertical-align: middle;
+  display:flex;
+  justify-content: space-around;
 }

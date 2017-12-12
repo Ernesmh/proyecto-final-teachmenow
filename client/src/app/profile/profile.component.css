@@ -78,6 +78,10 @@ margin: 0 auto;
   color:black;
   border:1px solid silver;
   border-radius: 10px;
+  margin: 10px auto;
+  font-size:15px;
+  height: 125px;
+  line-height: 25px;
 }
 
 

@@ -2,8 +2,8 @@
 
 <div class="navbar">
   <div class="content">
-  <a class="navclass" (click)="goEditing()">Editar perfil</a>
+  <div style="display:inline-block"><a class="navclass" (click)="goEditing()">Editar Perfil</a></div>
   <img style="width: 50px; height:50px; padding-top: 10px;display:inline-block" src="{{authService.user.avatar}}" alt="">
-  <a class="navclass" (click)="logout()">Cerrar sesión</a>
+  <div style="display:inline-block"><a class="navclass" (click)="logout()">Cerrar Sesión</a></div>
   </div>
 </div>

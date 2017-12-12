@@ -59,4 +59,7 @@ export class EditformComponent implements OnInit {
 
   }
 
+  goBack(){
+    this.router.navigate(['/profile'])
+  }
 }

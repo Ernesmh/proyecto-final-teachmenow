@@ -5,9 +5,9 @@
   <div class="cuerpo">
 
     <h2 style="color: #298729;font-family: 'Indie Flower', cursive;margin-bottom:15px"> Bienvenido, {{user.username}} </h2>
-    <p style="margin: 10px 10px"> Para editar tus características, pulsa <a href="#">AQUÍ</a></p>
+    <p style="margin: 10px 10px; font-size: 18px"> Para editar tus características, pulsa <a href="#">AQUÍ</a></p>
     <h2 style="margin:20px" *ngIf="!teach">Citas: </h2>
-    <div *ngFor="let de of meeting" style="margin-bottom:20px; padding:20px;"
+    <div *ngFor="let de of meeting" style="margin-bottom:20px; padding:20px; height:80px;"
     class="pendiente"><b>Profesor: </b><span style="font-family: 'Indie Flower', cursive; font-size:25px">{{de.teacher.username}}</span>
      <br><b>Fecha: </b><span style="font-family: 'Indie Flower', cursive; font-size:25px">{{de.date}}</span> <br>
     <button class="button" style="width:50%; height: 5vh;margin-top:10px; margin-bottom:0px;"
@@ -17,11 +17,11 @@
     <div *ngIf="teach" style="margin-bottom:20px">
 
         <h2 style="margin-top:10px">Peticiones pendientes: </h2>
-        <div *ngFor="let student of user.student_petitions" class="pendiente">
+        <div *ngFor="let student of user.student_petitions" class="pendiente" style="width:70%">
           <h3 style="margin-bottom:0px; color: #298729">{{student.username}}</h3> Alumno de {{student.level}}
-          <p style="margin-bottom: 0px">Teléfono: {{student.phone}}</p>
-          <p style="margin-bottom: 0px">Mail: {{student.email}}</p>
-            <button class="button" (click)="closeMeeting(student._id)">Confirmar</button>
+          <p style="margin-bottom: 10px">Teléfono: {{student.phone}}</p>
+
+            <button class="button" (click)="closeMeeting(student._id)" style="width: 40%; mergin-top: 10px; margin-bottom: 10px;height: 5vh">Confirmar</button>
         </div>
 
 

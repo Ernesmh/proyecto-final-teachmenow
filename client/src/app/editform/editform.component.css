@@ -7,7 +7,7 @@
     line-height:15px;
     border:1px solid #298729;
     border-radius: 20px;
-    
+
 
 }
 
@@ -23,7 +23,7 @@ select{
 }
 
 button{
-  width:40vw;
+  width:20vw;
   margin-bottom: 20px;
   height: 6 vh;
   background-color:#298729;
@@ -34,4 +34,6 @@ button{
   font-size:16px;
   font-weight: bold;
   font-family: 'Indie Flower', cursive;
+  margin-left:10px;
+  margin-right:10px;
 }
