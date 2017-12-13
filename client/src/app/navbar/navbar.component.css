@@ -7,17 +7,17 @@
   z-index:2000;
   left:0;
   top:0;
+  line-height: ;
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  vertical-align: middle;
+
 }
 
 a{
-  font-size: 20px;
-  margin: 0 10px;
-  margin-bottom: 20px;
+  font-size: 25px;
+  margin: 10px 30px 20px 30px;
   vertical-align: middle;
   width: 110px;
 }
@@ -28,7 +28,8 @@ b{
 }
 
 content{
-  vertical-align: middle;
+
   display:flex;
   justify-content: space-around;
+  align-items: center;
 }

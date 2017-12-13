@@ -3,9 +3,21 @@ const userController = express.Router();
 const User = require("../models/User");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const multer = require("multer");
-const upload = multer({ dest: './public/uploads/'});
 const ensureLogin = require("connect-ensure-login");
+const multer = require("multer");
+const path = require('path');
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './public/uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}${path.extname(file.originalname)}`);
+  }
+});
+
+const upload   = multer({ storage });
+
 
 userController.get('/', ensureLogin.ensureLoggedIn ('/login'), (req, res, next) => {
   User.find({})
@@ -49,14 +61,17 @@ userController.get('/:id/edit', ensureLogin.ensureLoggedIn ('/login'), (req, res
   .catch(err => { res.status(500).json(err);});
 });
 
-userController.post('/:id/edit', (req, res, next) => {
+userController.post('/:id/edit', upload.single('file'), (req, res, next) => {
+  console.log("ENTRO EN PHOTO");
+  console.log(req.body);
   let id  = req.params.id;
-const {username, role, subject, price_per_hour, level, email, phone, description} = req.body;
+  const {username, role, subject, price_per_hour, level, email, phone, description} = req.body;
+  const avatar = `/uploads/${req.file.filename}`;
 
   console.log('me cago en la puta ya');
-  console.log(username, role, subject, price_per_hour, level, email, phone, description);
+  console.log({username, role, subject, price_per_hour, level, email, phone, description, avatar});
 
-  User.findByIdAndUpdate(id, {username, role, subject, price_per_hour, level, email, phone, description}, {new: true})
+  User.findByIdAndUpdate(id, {username, role, subject, price_per_hour, level, email, phone, description, avatar}, {new: true})
        .then(o => res.json(o))
        .catch(e => res.json(e));
 });

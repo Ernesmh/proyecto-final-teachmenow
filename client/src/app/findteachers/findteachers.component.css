@@ -1,14 +1,13 @@
 agm-map {
-  height: 600px;
+  height: 250px;
+  width: 300px;
+  margin-top: 30px;
+  position: absolute;
+  top: 65px;
+  left: 37px;
 
 }
 
-.map{
-  width:90vw;
-  border:1px solid silver;
-  border-radius: 5px;
-  margin: 0 auto;
-}
 
 .ng-template{
   background-color: green;
@@ -30,20 +29,20 @@ button{
     width:45%;
     border: 1px solid #298729;
     border-radius: 20px;
-    padding:0px 20px;
-    padding-top:5px;
+    padding:5px 20px;
     text-align:center;
     font-size:18px;
     font-weight: bold;
     cursor:pointer;
     font-family: 'Indie Flower', cursive;
     margin-bottom: 10px ;
+    vertical-align: middle;
 }
 
 
 .materias{
   width: 70vw;
-  height: 25vh;
+  height: 20vh;
   padding-top:5px;
   line-height: 20px;
   margin:20px auto;

@@ -1,9 +1,9 @@
 
 
-<div class="navbar">
-  <div class="content">
-  <div style="display:inline-block"><a class="navclass" (click)="goEditing()">Editar Perfil</a></div>
-  <img style="width: 50px; height:50px; padding-top: 10px;display:inline-block" src="{{authService.user.avatar}}" alt="">
-  <div style="display:inline-block"><a class="navclass" (click)="logout()">Cerrar Sesión</a></div>
-  </div>
+<div *ngIf="authService.user"class="navbar" >
+  <!-- <div class="content"> -->
+  <div style="margin-top:5px"><a class="navclass" (click)="goEditing()">Editar</a></div>
+  <div><img style="width: 60px; height:60px; padding-top: 10px;display:inline-block" src="{{BASEURL}}/{{authService.user.avatar}}" alt=""></div>
+  <div style="margin-top:5px"><a class="navclass" (click)="logout()">Cerrar</a></div>
+  <!-- </div> -->
 </div>

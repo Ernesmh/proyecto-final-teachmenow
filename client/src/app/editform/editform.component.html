@@ -1,7 +1,7 @@
 <div class="form-container" *ngIf="user">
 
-    <label> Nombre </label><br>
-    <input style="margin-bottom: 15px;"type="text" [(ngModel)]="user.username" name="username"/>
+    <label> Nombre </label>
+    <input style="margin-bottom: 15px; width: 65%"type="text" [(ngModel)]="formInfo.username" name="username"/>
     <br>
     <label> Rol </label>
     <select  name='role' [(ngModel)]="formInfo.role" style="width:85%">
@@ -17,8 +17,8 @@
       <option value='Historia'>Historia</option>
     </select><br>
 
-    <label> Precio por hora </label><br>
-    <input style="margin-bottom: 15px;" type="number" [(ngModel)]="formInfo.price_per_hour" name="price_per_hour"/><br>
+    <label> Precio por hora </label>
+    <input style="width:10%; margin-bottom: 15px;" type="number" [(ngModel)]="formInfo.price_per_hour" name="price_per_hour"/>€<br>
 
     <label>Nivel</label>
     <select name='level' [(ngModel)]="formInfo.level" style="width:80%">
@@ -27,6 +27,7 @@
       <option value='Universidad/FP' selected>Universidad/FP</option>
       <option value='Postgrado'>Postgrado</option>
     </select><br>
+    
     <label> Email </label><br>
     <input style="margin-bottom: 15px;" type="text" [(ngModel)]="formInfo.email" name="email"/><br>
 
@@ -40,6 +41,11 @@
     <label> Descripción breve </label><br>
     <input style="margin-bottom: 15px;" type="text" [(ngModel)]="formInfo.description" name="description"/><br>
 
-    <button (click)="goBack()">Volver</button><button (click)="editUser(user)">Hecho</button>
+    <label> Sube tu avatar! </label>
+    <input style="width:100%; margin-bottom: 10px;"type="file" ng2FileSelect [uploader]="uploader" name="avatar"/>
+    <br>
+
+    <!-- <button (click)="goBack()">Volver</button><button (click)="editUser(user)">Hecho</button> -->
+    <button (click)="goBack()">Volver</button><button (click)="submit()">Hecho</button>
 
 </div>

@@ -24,8 +24,7 @@ import { ProfdetailsComponent } from './profdetails/profdetails.component';
 import { RatingComponent } from './rating/rating.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EditformComponent } from './editform/editform.component'
-
-
+import { FileUploadModule } from "ng2-file-upload";
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +48,7 @@ import { EditformComponent } from './editform/editform.component'
     HttpModule,
     AgmSnazzyInfoWindowModule,
     AgmCoreModule,
+    FileUploadModule,
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBm9q2GJO-AMxroWf4r0aYWsTtSGZn9S0U'
