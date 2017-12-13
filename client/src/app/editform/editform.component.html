@@ -9,16 +9,16 @@
       <option value='student'>alumno</option>
     </select><br>
 
-    <label> Materia </label>
-    <select name='subject' [(ngModel)]="formInfo.subject" style="width:70%">
+    <label *ngIf="user.role=='teacher'"> Materia </label>
+    <select *ngIf="user.role=='teacher'"name='subject' [(ngModel)]="formInfo.subject" style="width:70%">
       <option value='Informática' selected>Informática</option>
       <option value='Matemáticas'>Matemáticas</option>
       <option value='Lengua'>Lengua</option>
       <option value='Historia'>Historia</option>
     </select><br>
 
-    <label> Precio por hora </label>
-    <input style="width:10%; margin-bottom: 15px;" type="number" [(ngModel)]="formInfo.price_per_hour" name="price_per_hour"/>€<br>
+    <label *ngIf="user.role=='teacher'"> Precio por hora </label>
+    <input *ngIf="user.role=='teacher'" style="width:10%; margin-bottom: 15px;" type="number" [(ngModel)]="formInfo.price_per_hour" name="price_per_hour"/><br>
 
     <label>Nivel</label>
     <select name='level' [(ngModel)]="formInfo.level" style="width:80%">
@@ -27,7 +27,7 @@
       <option value='Universidad/FP' selected>Universidad/FP</option>
       <option value='Postgrado'>Postgrado</option>
     </select><br>
-    
+
     <label> Email </label><br>
     <input style="margin-bottom: 15px;" type="text" [(ngModel)]="formInfo.email" name="email"/><br>
 

@@ -60,8 +60,8 @@ export class ProfileComponent{
 
   }
 
-  goRating(id){
-    console.log(id)
-    this.router.navigate(['/rating/new', id])
+  goRating(id, meetingID){
+    console.log(id , meetingID)
+    this.router.navigate(['/rating/new', id, meetingID])
   };
 }

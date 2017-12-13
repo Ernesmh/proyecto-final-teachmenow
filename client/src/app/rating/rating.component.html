@@ -33,7 +33,7 @@
   <textarea name="comment" style="font-family: 'Indie Flower', cursive;"
    placeholder="¿Algo que te molestara? ¿Recomendarías?" rows="6" cols="25" [(ngModel)]="ratingInfo.comment"></textarea>
 
-  <p style="margin-bottom: 10px;"><button style="margin-bottom: 0px;"(click)= "createRating()">Hecho!</button></p>
+  <p style="margin-bottom: 10px;"><button style="margin-bottom: 0px;" (click)= "createRating(); getBack()">Hecho!</button></p>
 
 </div>
 <button (click)= "getBack()">Volver</button>

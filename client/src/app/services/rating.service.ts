@@ -23,8 +23,9 @@ private options = {withCredentials:true};
 
   }
 
-  rateTeacherService(teacherId, userId, ratingObj):Observable<any>{
-      return this.http.post(`${environment.BASEURL}/rating/new/${teacherId}`,{userId, ratingObj}, this.options)
+  rateTeacherService(teacherId, userId, meetingID, ratingObj):Observable<any>{
+    console.log(meetingID)
+      return this.http.post(`${environment.BASEURL}/rating/new/${teacherId}/${meetingID}`,{userId, ratingObj}, this.options)
                   .map(res => res.json());
 }
   }

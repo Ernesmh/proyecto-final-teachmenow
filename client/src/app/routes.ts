@@ -22,6 +22,6 @@ export const routes: Routes = [
     { path: 'profile/edit',  component: EditformComponent, },
     { path: 'subject/:subject',  component: FindteachersComponent, },
     { path: 'subject/:subject/:teacherid',  component: ProfdetailsComponent, },
-    { path: 'rating/new/:teacherid',  component: RatingComponent, },
+    { path: 'rating/new/:teacherid/:meetingId',  component: RatingComponent, },
     //{ path: '**', redirectTo: '' }
 ];
