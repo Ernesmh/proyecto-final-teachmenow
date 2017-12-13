@@ -3,7 +3,7 @@
 <div *ngIf='user'>
 
   <div class="cuerpo">
-
+    <img src="{{user.avatar}}" alt="" style="height:100px; width: 100px; margin-bottom: 20px">
     <h2 style="color: #298729;font-family: 'Indie Flower', cursive;margin-bottom:15px"> Bienvenido, {{user.username}} </h2>
     <p style="margin: 10px 10px; font-size: 18px"> Para editar tus características, pulsa <a href="#">AQUÍ</a></p>
     <h2 style="margin:20px" *ngIf="!teach">Citas: </h2>
