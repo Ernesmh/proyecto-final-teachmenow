@@ -34,7 +34,7 @@ meetingController.get('/:id', ensureLogin.ensureLoggedIn('/login'), (req, res, n
   .catch(err => { res.status(500).json(err);});
 });
 
-
+// meetingController.delete('/', )
 
 module.exports = meetingController;
 
