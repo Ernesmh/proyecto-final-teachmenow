@@ -13,7 +13,7 @@ const userSchema = new Schema({
   email: String,
   position: {latitude: Number, longitude: Number},
   phone: Number,
-  avatar: String,
+  avatar: {type: String, default: "http://216.171.160.67/~devkatiewagnerso/wp-content/uploads/2012/08/Facebook-Blank-Photo.jpg"},
   student_petitions: [{type:Schema.Types.ObjectId, ref:'User'}],
   description: String,
 });
