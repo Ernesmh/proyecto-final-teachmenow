@@ -1,4 +1,4 @@
-const dotenv = require('dotenv').load();
+require('dotenv').load();
 const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');

@@ -1,5 +1,7 @@
+require('dotenv').load();
 const mongoose = require('mongoose');
-const dbURL = "mongodb://localhost/teachMeNow";
+console.log(process.env.MONGO_URL);
+const dbURL = process.env.MONGO_URL;
 mongoose.connect(dbURL, { useMongoClient: true} );
 
 const bcrypt = require("bcrypt");
