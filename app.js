@@ -15,7 +15,7 @@ const ratingController = require ('./routes/ratingController');
 const userController = require ('./routes/userController');
 const subjectController = require ('./routes/subjectController');
 const cors = require('cors');
-const dbURL = "mongodb://localhost/teachMeNow";
+const dbURL = process.env.MONGO_URL;
 const app = express();
 
 
@@ -69,6 +69,9 @@ app.use('/user', userController);
 app.use('/rating', ratingController);
 app.use('/meeting', meetingController);
 
+app.use((req, res, next) => {
+  res.sendfile(__dirname + '/public/index.html');
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
