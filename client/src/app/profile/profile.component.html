@@ -18,13 +18,15 @@
     <div *ngIf="teach" style="margin-bottom:20px">
 
         <h2 style="margin-top:10px">Peticiones pendientes: </h2>
+
         <div *ngFor="let student of user.student_petitions" class="pendiente" style="width:70%">
           <h3 style="margin-bottom:0px; color: #298729">{{student.username}}</h3> Alumno de {{student.level}}
           <p style="margin-bottom: 10px">Teléfono: {{student.phone}}</p>
 
-            <button class="button" (click)="closeMeeting(student._id)"
+          <div *ngIf="this.active==false"> <button class="button" (click)="closeMeeting(student._id)"
              style="width: 40%; mergin-top: 10px; margin-bottom: 10px;height: 5vh">Confirmar</button>
         </div>
+      </div>
 
 
     </div>

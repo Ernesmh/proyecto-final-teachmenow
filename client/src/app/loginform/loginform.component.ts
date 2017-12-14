@@ -33,9 +33,6 @@ export class LoginformComponent implements OnInit {
   login() {
     const { username, password } = this.formInfo;
     if (username != "" && password != "") {
-
-      console.log('este es mi id: ' + this.user)
-      console.log(`Login with ${username} ${password}`)
       this.auth.login(username, password)
       .subscribe(() => this.router.navigate(['/profile']));
 

@@ -14,6 +14,7 @@ export class ProfileComponent{
   user:object;
   meeting: Array<any>;
   teach: Boolean = false;
+  active=false;
   constructor( public router:Router, public authService:AuthService, public route:ActivatedRoute) {
     // route.params.subscribe(params => {
     //   this.userService.getUserById(req.params['id'])
@@ -46,6 +47,7 @@ export class ProfileComponent{
   closeMeeting(studentID){
     this.authService.closeMeetingService(studentID)
       .subscribe(meeting => console.log(meeting));
+    this.active=true;
   }
 
   paintMeetings(userid){
