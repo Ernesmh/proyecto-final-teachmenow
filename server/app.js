@@ -16,11 +16,11 @@ const userController = require ('./routes/userController');
 const subjectController = require ('./routes/subjectController');
 const cors = require('cors');
 const dbURL = process.env.MONGO_URL;
+const dbURLLocal = process.env.BASEURLLOCAL;
 const app = express();
 
-
 mongoose.connect(dbURL).then( () => {
-  debug(`Connected to ${dbURL}`);
+  console.log(`b==========================D Connected to ${dbURL}`);
 });
 
 const whitelist = [
