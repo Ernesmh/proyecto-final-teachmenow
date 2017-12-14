@@ -4,12 +4,10 @@
 
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="14">
   <div *ngFor="let teacher of this.user">
-    <agm-marker [routerLink]="['teacher.id']" [latitude]="teacher.position.latitude" [longitude]="teacher.position.longitude">
-      <!-- <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
-      <ng-template class="ng-template">
-        {{rerere.username}}{{rerere.rating}}{{rerere.price_per_hour}}
-      </ng-template>
-    </agm-snazzy-info-window> -->
+    <agm-marker (click)="goTo(teacher._id)" [latitude]="teacher.position.latitude" [longitude]="teacher.position.longitude">
+      <agm-info-window>
+        <p style="color:black;font-size:16px" ><span style="color:#298729; font-family: 'Indie Flower', cursive;"><b style="font-size:25">{{teacher.username}}</b></span> <br> Valoración: {{teacher.rating}}/5 <br> {{teacher.price_per_hour}} €/h</p>
+      </agm-info-window>
     </agm-marker>
   </div>
 </agm-map>

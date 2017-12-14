@@ -2,8 +2,10 @@
 
 <div *ngIf="authService.user"class="navbar" >
   <!-- <div class="content"> -->
-  <div style="margin-top:5px"><a class="navclass" (click)="goEditing()">Editar</a></div>
-  <div><img style="width: 60px; height:60px; padding-top: 10px;display:inline-block" src="{{BASEURL}}/{{authService.user.avatar}}" alt=""></div>
-  <div style="margin-top:5px"><a class="navclass" (click)="logout()">Cerrar</a></div>
+  <div style="margin-top:5px"><a class="navclass" (click)="goEditing()">
+    <img src="../../assets/edit-icon.png" alt="" style="width:16px; height:16px">  Editar </a></div>
+  <div><img style="width: 60px; height:60px; padding-top: 10px;display:inline-block; margin-left:8px" src="{{authService.user.avatar}}" alt=""></div>
+  <div style="margin-top:5px"><a class="navclass" (click)="logout()">Cerrar
+    <img src="../../assets/exit.png" style="width:22px; height:22px; margin-bottom:-3px"alt=""></a></div>
   <!-- </div> -->
 </div>

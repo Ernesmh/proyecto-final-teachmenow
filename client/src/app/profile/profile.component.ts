@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import * as moment from 'moment';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -64,4 +65,7 @@ export class ProfileComponent{
     console.log(id , meetingID)
     this.router.navigate(['/rating/new', id, meetingID])
   };
+
+
+
 }

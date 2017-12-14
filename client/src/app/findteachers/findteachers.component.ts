@@ -14,7 +14,9 @@ export class FindteachersComponent implements OnInit {
   user: Array<Object>=[];
   lat: number = 40.392633;
   lng: number = -3.698328;
+    media:Number =0;
   constructor(public router:Router, public authService: AuthService, public userService: UserService, public route:ActivatedRoute) { }
+
 
 
   ngOnInit() {
@@ -26,6 +28,7 @@ export class FindteachersComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.userService.getUserBySubject(params['subject'])
         .subscribe(user => {
+          
           console.log(user),
 
           this.user = user});
@@ -38,5 +41,7 @@ wantTeacher(teacherID){
       this.router.navigate(['/profile'])
 }
 
-
+goTo(profe){
+  this.router.navigate([profe])
+}
 }

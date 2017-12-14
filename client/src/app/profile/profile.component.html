@@ -3,10 +3,11 @@
 <div *ngIf='user'>
 
   <div class="cuerpo">
-    <img src="{{user.avatar}}" alt="" style="height:100px; width: 100px; margin-bottom: 20px">
+    <img src="../../assets/logoo.png" alt="" style="height:150px; width: 150px; margin-bottom: 20px">
     <h2 style="color: #298729;font-family: 'Indie Flower', cursive;margin-bottom:15px"> Bienvenido, {{user.username}} </h2>
     <p style="margin: 10px 10px; font-size: 18px"> Bienvenido de nuevo a TeachMeNow, la mejor comunidad educativa de urgencia. ¡Te estábamos esperando!</p>
-    <h2 style="margin-top:20px" *ngIf="!teach && meeting.length > 0">Citas: </h2>
+    <h2 style="margin-top:20px" *ngIf="!teach && meeting && meeting.length > 0">Citas: </h2>
+    <h2 style="margin:40px" *ngIf="!teach && meeting && meeting.length == 0">Sin citas pendientes</h2>
     <div *ngFor="let de of meeting" style="margin-bottom:20px; padding:20px; height:80px;"
     class="pendiente"><b>Profesor: </b><span style="font-family: 'Indie Flower', cursive; font-size:25px">{{de.teacher.username}}</span>
      <br><b>Fecha: </b><span style="font-family: 'Indie Flower', cursive; font-size:25px">{{de.date}}</span> <br>
